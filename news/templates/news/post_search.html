@@ -1,0 +1,42 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_tags %}
+
+
+{% block title %}
+All News
+{% endblock title %}
+
+{% block content %}
+<h1>Найти новости</h1>
+
+<form method="GET">
+    {{ filter.form }}
+    <input type="submit" value="Найти">
+</form>
+<p>&nbsp;</p>
+<table style="margin-left: auto; margin-right: auto;">
+    <tr>
+        <td>
+            ~Заголовок~
+            <p></p>
+        </td>
+         <td>
+            ~Дата публикации~
+            <p></p>
+        </td>
+        <td>
+            ~Статья~
+            <p></p>
+        </td>
+    </tr>
+    {% for title in filter.qs %}
+    <tr>
+        <td><p>{{ title.title }}</p></td>
+        <td><p>{{ title.dateCreation|date:'d m Y' }} г</p></td>
+        <td><p>{{ title.text|truncatechars:20 }}</p></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_tags %}
+
+
+{% block title %}
+New posts
+{% endblock title %}
+
+{% block content %}
+<h1>Редактор поста</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <p>&nbsp;</p>
+    <input type="submit" value="Редактировать статью">
+    <p>&nbsp;</p>
+</form>
+{% endblock content %}

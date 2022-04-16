@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>{{ x }}</p>
+
+
+
+</body>
+</html>
+
+<!--{% if is_paginated %}-->
+<!--    {% if page_obj.has_previous %}-->
+<!--        <a href="?page=1">Первая</a>-->
+<!--        <a href="?page={{ page_obj.previous_page_number }}"><<<</a>-->
+<!--    {% endif %}-->
+
+<!--    {% for num in page_obj.paginator.page_range %}-->
+<!--        {% if page_obj.number == num %}-->
+<!--            <a>{{ num }}</a>-->
+<!--        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}-->
+<!--            <a href="?page={{ num }}">{{ num }}</a>-->
+<!--        {% endif %}-->
+<!--    {% endfor %}-->
+
+<!--    {% if page_obj.has_next %}-->
+<!--        <a href="?page={{ page_obj.next_page_number }}">>>></a>-->
+<!--        <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>-->
+<!--    {% endif %}-->
+
+<!--{% endif %}-->
+
+
+
+<!--{% extends 'flatpages/default.html' %}-->
+
+
+<!--{% block title %}-->
+<!--All News-->
+<!--{% endblock title %}-->
+
+<!--{% block content %}-->
+<!--<h1>Все новости</h1>-->
+<!--<table>-->
+<!--    <tr>-->
+<!--        <td>-->
+<!--            ~Заголовок~-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            ~Дата публикации~-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            ~Статья~-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--    {% for title in Posts %}-->
+<!--    <tr>-->
+<!--        <td><p>{{ title.title }}</p></td>-->
+<!--        <td><p>{{ title.dateCreation|date:'d m Y' }} г</p></td>-->
+<!--        <td><p>{{ title.text|truncatechars:20 }}</p></td>-->
+<!--    </tr>-->
+<!--    {% endfor %}-->
+<!--</table>-->
+<!--{% if is_paginated %}-->
+<!--    {% if page_obj.has_previous %}-->
+<!--        <a href="?page=1">Первая</a>-->
+<!--        <a href="?page={{ page_obj.previous_page_number }}"><<<</a>-->
+<!--    {% endif %}-->
+
+<!--    {% for num in page_obj.paginator.page_range %}-->
+<!--        {% if page_obj.number == num %}-->
+<!--            <a>{{ num }}</a>-->
+<!--        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}-->
+<!--            <a href="?page={{ num }}">{{ num }}</a>-->
+<!--        {% endif %}-->
+<!--    {% endfor %}-->
+
+<!--    {% if page_obj.has_next %}-->
+<!--        <a href="?page={{ page_obj.next_page_number }}">>>></a>-->
+<!--        <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>-->
+<!--    {% endif %}-->
+
+<!--{% endif %}-->
+
+<!--{% endblock content %}-->

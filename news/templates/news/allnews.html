@@ -1,0 +1,59 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+All News
+{% endblock title %}
+
+{% block content %}
+<h1>Все новости</h1>
+<table style="margin-left: auto; margin-right: auto;">
+    <tr>
+        <td>
+            ~Заголовок~
+            <p></p>
+        </td>
+         <td>
+            ~Дата публикации~
+            <p></p>
+        </td>
+        <td>
+            ~Статья~
+            <p></p>
+        </td>
+    </tr>
+    {% for title in Posts %}
+    <tr>
+        <td style="width: 200px" >&nbsp;</p><a href="{% url 'post_detail' title.id %}">{{ title.title }}</a><p><p></p>
+        <a href="{% url 'post_update' title.id %}"><u>Редактировать</u></a>
+            <a href="{% url 'post_delete' title.id %}"><u> Удалить </u></a>
+        </td>
+        <td style="width: 200px"><p><p>&nbsp;</p>{{ title.dateCreation|date:'d m Y' }} г</p></td>
+        <td style="width: 200px"><p><p>&nbsp;</p>{{ title.text|truncatechars:20 }}</p></td>
+
+    </tr>
+    {% endfor %}
+</table>
+<p>&nbsp;</p>
+{% if is_paginated %}
+    {% if page_obj.has_previous %}
+        <a href="?page=1">Первая стр. поиска</a>
+        <a href="?page={{ page_obj.previous_page_number }}"><<<</a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <a>{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">>>></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">и последняя</a>
+    {% endif %}
+
+{% endif %}
+
+{% endblock content %}

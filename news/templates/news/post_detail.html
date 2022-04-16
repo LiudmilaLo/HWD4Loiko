@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+{% load custom_tags %}
+
+
+{% block title %}someone Post{% endblock title %}
+
+{% block content %}
+<h3><span style="color: #ff0000;">Автор:</span> {{ Post.author.authorUser }}</h3>
+<h2><span style="color: #008000;">{{ Post.title|censor }}</span></h2>
+<h5>{{ Post.text|censor }}</h5>
+<h6>{% current_time '%d %m %Y' %} г</h6>
+{% endblock content %}
